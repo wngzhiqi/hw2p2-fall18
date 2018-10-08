@@ -113,6 +113,6 @@ class SpeechModel(nn.Module):
         x = self.avgpool(x)
         x = x.view(x.size(0), -1)
         x = self.fc1(x)
-        self.features = x
+        self.features = self.l2_norm(x)
         x = self.classifier(x)
         return x
